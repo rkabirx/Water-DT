@@ -1,6 +1,6 @@
 # Accelerator pedal to apply acceleration
 # Sends accelerator pedal position status as binary value
-
+import numpy as np
 def w_i() :
     import tkinter
 
