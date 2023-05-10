@@ -79,12 +79,17 @@ class listener_thread(Thread):
             for j in range(max(0, target[1] - 1), min(target[1] + 2, 4)):
                 if i == target[0] and j == target[1]:
                     continue
-                adjacent.append(pond[i][j])
+                adjacent.append((i, j))
 
-        print("Adjacent values for target", target, ":", adjacent)
+        # get the area numb of adjacent cells
+        adjacent_areas = []
+        for cell in adjacent:
+            adjacent_areas.append(list(areas.keys())[list(areas.values()).index(cell)])
 
-        for i in adjacent:
-            pond[areas[i]] = 123
+        print("Adjacent cell areas for target", target, ":", adjacent_areas)
+
+        for i in adjacent_areas:
+            pond[areas[i]] = waste_type
         else:
             print("error")
 
